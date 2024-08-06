@@ -6,7 +6,6 @@ import type {
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router"; // Usage: Page router
 import { Capacitor } from "@capacitor/core";
-import { CapacitorHttp } from "@capacitor/core";
 
 const testPaths = [
   { params: { id: "1" } },
@@ -17,7 +16,7 @@ const testPaths = [
 export const getStaticPaths = (async () => {
   return {
     paths: testPaths,
-    fallback: false, // false or "blocking"
+    fallback: false,
   };
 }) satisfies GetStaticPaths;
 

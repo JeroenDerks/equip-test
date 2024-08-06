@@ -15,10 +15,12 @@ export function middleware(req: NextRequest) {
   // retrieve the HTTP "Origin" header
   // from the incoming request
   const origin = req.headers.get("origin");
+  console.log({ origin });
 
   // if the origin is an allowed one,
   // add it to the 'Access-Control-Allow-Origin' header
   if (origin && allowedOrigins.includes(origin)) {
+    console.log("origin is included");
     res.headers.append("Access-Control-Allow-Origin", origin);
   }
 
