@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "static": "BUILD_SETTING=export next build && npx cap sync && npx cap open ios",
+    "static": "BUILD_SETTING=export next build && npx cap sync && npx cap open android",
     "staticDev": "BUILD_SETTING=export next dev"
   },
   "dependencies": {
