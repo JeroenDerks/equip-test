@@ -19,5 +19,5 @@ export default function handler(
 
   res
     .status(200)
-    .json({ pow: Math.pow(int, int), origin: origin || "no origin" });
+    .json({ pow: Math.pow(int, int), origin: origin || "origin not provided" });
 }
