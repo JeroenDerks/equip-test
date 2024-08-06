@@ -3,11 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "BUILD_SETTING=standalone next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "static": "next build"
+    "static": "BUILD_SETTING=export next build && npx cap sync && npx cap open ios",
+    "staticDev": "BUILD_SETTING=export next dev"
   },
   "dependencies": {
     "@capacitor/android": "^6.1.1",

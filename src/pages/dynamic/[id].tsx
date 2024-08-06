@@ -5,6 +5,8 @@ import type {
 } from "next";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router"; // Usage: Page router
+import { Capacitor } from "@capacitor/core";
+import { CapacitorHttp } from "@capacitor/core";
 
 const testPaths = [
   { params: { id: "1" } },
@@ -33,19 +35,18 @@ export default function Page({
     const getData = async () => {
       try {
         if (typeof id === "string") {
-          const res = await fetch(
-            "https://equip-test.vercel.app/api/test-fetch",
-            {
-              method: "POST",
-              body: id,
-            }
-          );
+          const pathPrefix = Capacitor.isNativePlatform()
+            ? "https://equip-test.vercel.app"
+            : "";
 
-          console.log({ res });
+          const res = await fetch(pathPrefix + "/api/test-fetch", {
+            method: "POST",
+            body: id,
+          });
 
           if (!res.ok) return;
+
           const result = await res.json();
-          console.log({ result });
           setPower(result.pow);
         }
       } catch (err) {
@@ -56,7 +57,14 @@ export default function Page({
   }, [id]);
 
   return (
-    <div className="px-4 py-10">
+    <div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
       <button onClick={() => router.back()}>back</button>
       <h1>Dynamic route for id: {id}</h1>
       <p>Fetch result = pow of id: {pow}</p>
