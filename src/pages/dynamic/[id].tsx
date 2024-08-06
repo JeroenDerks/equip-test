@@ -28,6 +28,7 @@ export default function Page({
   id,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const [pow, setPower] = useState<string>();
+  const [origin, setOrigin] = useState<string>();
   const router = useRouter();
 
   useEffect(() => {
@@ -47,6 +48,7 @@ export default function Page({
 
           const result = await res.json();
           setPower(result.pow);
+          setOrigin(result.origin);
         }
       } catch (err) {
         console.error(JSON.stringify(err));
@@ -67,6 +69,7 @@ export default function Page({
       <button onClick={() => router.back()}>back</button>
       <h1>Dynamic route for id: {id}</h1>
       <p>Fetch result = pow of id: {pow}</p>
+      <p>{origin}</p>
     </div>
   );
 }
