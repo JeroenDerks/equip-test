@@ -3,10 +3,13 @@ import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import Link from "next/link";
+import { useI18n } from "@/hooks/useI18n";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const { t } = useI18n();
+
   return (
     <>
       <Head>
@@ -29,14 +32,7 @@ export default function Home() {
         </div>
 
         <div className={styles.center}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
-          />
+          <h2>{t("homepage.title")}</h2>
         </div>
       </main>
     </>
