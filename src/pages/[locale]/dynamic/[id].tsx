@@ -14,14 +14,28 @@ const testPaths = [
 ];
 
 export const getStaticPaths = (async () => {
+  const locales = ["en", "nl"];
+
+  const paths: any = testPaths.map((element) => {
+    return locales?.map((locale) => {
+      return paths.push({
+        params: { id: element.params.id },
+        locale,
+      });
+    });
+  });
+
+  console.log({ paths });
+
   return {
-    paths: testPaths,
+    paths,
     fallback: false,
   };
 }) satisfies GetStaticPaths;
 
 export const getStaticProps = (async (context) => {
-  return { props: { id: context?.params?.id } };
+  console.log(context);
+  return { props: { id: context?.params?.id, locale: context.locale || "de" } };
 }) satisfies GetStaticProps;
 
 export default function Page({

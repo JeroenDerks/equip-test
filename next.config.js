@@ -1,8 +1,12 @@
-/** @type {import('next').NextConfig} */
+import i18n from "./next-i18next.config.js";
+
 const nextConfig = {
   reactStrictMode: true,
   images: {
     unoptimized: true,
+  },
+  env: {
+    NEXT_PUBLIC_I18N: i18n,
   },
   output: process.env.BUILD_SETTING || "standalone",
 

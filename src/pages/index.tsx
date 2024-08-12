@@ -2,11 +2,14 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
+import { useTranslation } from "i18next-ssg";
 import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const { t } = useTranslation("common");
+
   return (
     <>
       <Head>
@@ -29,6 +32,7 @@ export default function Home() {
         </div>
 
         <div className={styles.center}>
+          <div>{t("homepage.title")}</div>
           <Image
             className={styles.logo}
             src="/next.svg"
