@@ -6,6 +6,7 @@ import commonEN from "../locales/en.json";
 import I18nProvider from "next-translate/I18nProvider";
 import { i18nConfig } from "../../i18n";
 import { useRouter } from "next/router";
+import { LanguageWrapper } from "@/lib/languageWrapper";
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -19,7 +20,9 @@ export default function App({ Component, pageProps }: AppProps) {
       {...{ lang }}
       namespaces={{ common: lang === "nl" ? commonNL : commonEN }}
     >
-      <Component {...pageProps} />
+      <LanguageWrapper>
+        <Component {...pageProps} />
+      </LanguageWrapper>
     </I18nProvider>
   );
 }

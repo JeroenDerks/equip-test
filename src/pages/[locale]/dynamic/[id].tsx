@@ -13,23 +13,13 @@ const testPaths = [
   { params: { id: "3" } },
 ];
 
-export const getStaticPaths = (async () => {
-  return {
-    paths: testPaths,
-    fallback: false,
-  };
-}) satisfies GetStaticPaths;
-
-export const getStaticProps = (async (context) => {
-  return { props: { id: context?.params?.id } };
-}) satisfies GetStaticProps;
-
-export default function Page({
-  id,
-}: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function Page({}) {
   const [pow, setPower] = useState<string>();
   const [origin, setOrigin] = useState<string>();
   const router = useRouter();
+  const id = router?.route || 123;
+
+  console.log(router, id);
 
   useEffect(() => {
     const getData = async () => {
