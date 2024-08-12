@@ -1,5 +1,9 @@
 {
   "homepage": {
     "title": "English title"
+  },
+  "dynamic": {
+    "title": "Dynamic route for id",
+    "resultTitle": "Fetch result = pow of id"
   }
 }

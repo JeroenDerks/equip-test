@@ -6,6 +6,8 @@ import type {
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router"; // Usage: Page router
 import { Capacitor } from "@capacitor/core";
+import { useI18n } from "@/hooks/useI18n";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
 const testPaths = [
   { params: { id: "1" } },
@@ -17,7 +19,9 @@ export default function Page({}) {
   const [pow, setPower] = useState<string>();
   const [origin, setOrigin] = useState<string>();
   const router = useRouter();
-  const id = router?.route || 123;
+  const { t } = useI18n();
+
+  const id = router?.query.id || 123;
 
   console.log(router, id);
 
@@ -57,8 +61,16 @@ export default function Page({}) {
       <br />
       <br />
       <button onClick={() => router.back()}>back</button>
-      <h1>Dynamic route for id: {id}</h1>
-      <p>Fetch result = pow of id: {pow}</p>
+      <div>
+        <LanguageSwitcher locale="en" />
+        <LanguageSwitcher locale="nl" />
+      </div>
+      <h1>
+        {t("dynamic.title")}: {id}
+      </h1>
+      <p>
+        {t("dynamic.resultTitle")}: {pow}
+      </p>
       <p>{origin}</p>
     </div>
   );

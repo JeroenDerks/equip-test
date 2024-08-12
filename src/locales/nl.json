@@ -1,5 +1,9 @@
 {
   "homepage": {
     "title": "Nederlandse titel"
+  },
+  "dynamic": {
+    "title": "Dynamische pagina voor",
+    "resultTitle": "Result van API = id kwadraad"
   }
 }
