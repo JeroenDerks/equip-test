@@ -29,6 +29,10 @@ export default function Home() {
         </div>
 
         <div className={styles.center}>
+
+             <a href="com.withequip.staging://equip-platform-staging.eu.auth0.com/capacitor/com.withequip.staging/callback">
+            Open app
+          </a>
           <Image
             className={styles.logo}
             src="/next.svg"
