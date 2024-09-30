@@ -27,12 +27,12 @@ export default function Home() {
           <Link href="/dynamic/4">Go to page 4 (shouldnt exist)</Link>
           <div></div>
         </div>
-
-        <div className={styles.center}>
-
              <a href="com.withequip.staging://equip-platform-staging.eu.auth0.com/capacitor/com.withequip.staging/callback">
             Open app
           </a>
+        <div className={styles.center}>
+
+
           <Image
             className={styles.logo}
             src="/next.svg"
