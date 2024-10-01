@@ -27,8 +27,8 @@ export default function Home() {
           <Link href="/dynamic/4">Go to page 4 (shouldnt exist)</Link>
           <div></div>
         </div>
-             <a href="com.withequip.staging://equip-platform-staging.eu.auth0.com/capacitor/com.withequip.staging/callback">
-            Open app
+        <a href="https://fe-git-feat-bank-success-eft.vercel.app/nl/bank-account/accept-consent">
+            Link to 
           </a>
         <div className={styles.center}>
 
